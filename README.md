@@ -1,16 +1,15 @@
-### Hi there 👋
 
-<!--
-**vishwaraj14/vishwaraj14** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Hey There🙋‍♂️
+   I am an engineering student, Pursuing Computer Science & Information Technology as my major.
+   My strengths are my attitude that I like to take challenges, self motivated person, self disciplined ,I am a good team player as well as has a good ability to lead the team.
+   - My Hobbies includes: 1. Reading
+                       2. Writing
+                       3. Watching Youtube
+                       4. Playing Cricket:)
+   
+  Connect With Me :-
 
-Here are some ideas to get you started:
+- ✿ Branch :- I.T. 3rd Sem.
+- ✿ LinkedIN :- 
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+                       
