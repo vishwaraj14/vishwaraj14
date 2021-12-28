@@ -1,0 +1,117 @@
+PSEUDOCODE/SAMPLE CODE :  DIJKSTRA’S SHORTEST PATH ALGORITHM
+
+#define INFINITY 9999
+#include <iostream.h>
+#include<conio.h>
+#define MAX 10
+class graph
+{
+ int G[MAX][MAX];
+ int n;
+ public:
+ graph()
+ {n=0;}
+ void readgraph();
+ void printgraph();
+ void dijkstra(int startnode);
+};
+void graph::readgraph()
+{ int i,j;
+ cout<<"\nEnter No. of Vertices :";
+1
+1
+5
+7
+6
+4
+1
+3
+1
+2
+1
+ cin>>n;
+ while((getch()=='\n'));
+ cout<<"\nEnter the adjacency Matrix :";
+ for(i=0;i<n;i++)
+ for(j=0;j<n;j++)
+cin>>G[i][j];
+while((getch()=='\n'));
+}
+void graph::printgraph()
+{ 
+ int i,j;
+ for(i=0;i<n;i++)
+ { cout<<"\n";
+ for(j=0;j<n;j++)
+cout<<" "<<G[i][j];
+ }
+}
+void dijkstra(int G[MAX] [MAX], int n, int startnode);
+void main()
+{
+ graph g;
+ int u;
+ g.readgraph();
+ cout<<"\n Enter the starting node :";
+ cin>>u;
+ g.dijkstra(u);
+ getch();
+}
+void graph::dijkstra(int startnode)
+{
+ int cost[MAX][MAX], distance[MAX], pred[MAX];
+ int visited[MAX],count,mindistance,nextnode,i,j;
+ //pred[]stores the predecessor of each node
+ //count gives the number of nodes seen so far
+ //create the cost matrics
+ for(i=0;i<n;i++)
+ for(j=0;j<n;j++)
+ if(G[i][j]==0)
+ cost[i][j]=INFINITY;
+ else
+ 
+ cost[i][j]=G[i][j];
+
+ //initialize pred[],distance[] and visited[]
+ for(i=0;i<n;i++)
+ {
+ distance[i]=cost[startnode][i];
+ pred[i]=startnode;
+ visited[i]=0;
+ }
+ distance[startnode]=0;visited[startnode]=1;
+ count=1;
+ while(count<n-1)
+ {
+ mindistance=INFINITY;
+//nextnode gives the node at minimum distance
+for(i=0;i<n;i++)
+ if(distance[i]<mindistance && !visited[i])
+{
+ mindistance=distance[i];
+ nextnode=i;
+}
+//check if a better path exist through nextnode
+visited[nextnode]=1;
+for(i=0;i<n;i++)
+if(!visited[i])
+ if(mindistance+cost[nextnode][i]<distance[i])
+ {
+distance[i]=mindistance+cost[nextnode][i];
+pred[i]=nextnode;
+ }
+count++; 
+ }
+//print the path and distance of each node
+for(i=0;i<n;i++)
+ if(i!=startnode)
+{
+ cout<<"\n Distance of node "<<i<<" = "<<distance[i];
+ cout<<"\n path= "<<i;
+ j=i;
+ do
+ {
+ j=pred[j];
+ cout<<"<-"<<j;
+ } while (j!=startnode);
+} }

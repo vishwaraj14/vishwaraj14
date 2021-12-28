@@ -1,0 +1,387 @@
+PSEUDOCODE/SAMPLE CODE: BINARY SEARCH TREE
+
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+int max(int value1,int value2)
+{
+return ((value1>value2)?value1:value2);
+}
+class BSTnode
+{
+public:
+int data;
+BSTnode *left,*right;
+BSTnode(int x)
+{
+data=x;
+left=right=NULL;
+}
+};
+class BST
+{
+BSTnode *root;
+BSTnode *delet1(BSTnode *T,int);
+void inorder1(BSTnode *T);
+void preorder1(BSTnode *T);
+void postorder1(BSTnode *T);
+int print0(BSTnode *T);
+public:
+BST()
+{
+root=NULL;
+}
+BSTnode *find(int x);
+void insert(int x);
+void delet(int x)
+{
+root=delet1(root,x);
+}
+void create();
+void inorder()
+{
+inorder1(root);
+}
+void preorder()
+{
+preorder1(root);
+}
+void postorder()
+{
+postorder1(root);
+}
+int print_leaf_nodes()
+{
+return(print0(root));
+}
+void level_wise();
+};
+class stack
+{
+BSTnode *data[30];
+int top;
+public:
+stack()
+{
+top=-1;
+}
+int empty()
+{
+if(top==-1)
+return 1;
+return 0;
+}
+void push(BSTnode *p)
+{
+data[++top]=p;
+}
+BSTnode *pop()
+{
+return(data[top--]);
+}
+};
+class Q
+{
+BSTnode *data[30];
+int R,F;
+public:
+Q()
+{
+R=F=-1;
+}
+void init()
+{
+R=F=-1;
+}
+int empty()
+{
+if(R==-1)
+return 1;
+return 0;
+}
+void insert(BSTnode *p)
+{
+if(empty())
+R=F=0;
+else
+R=R+1;
+data[R]=p;
+}
+BSTnode *Delete()
+{
+BSTnode *p=data[F];
+if(R==F)
+R=F=-1;
+else
+F=F+1;
+return(p);
+}
+};
+BSTnode *BST::delet1(BSTnode *T,int x)
+{
+BSTnode *temp;
+if(T==NULL)
+{
+cout<<"\nElement not found:";
+return(T);
+}
+if(x<T->data)
+{
+T->left=delet1(T->left,x);
+return(T) ;
+}
+if(x>T->data)
+{
+T->right=delet1(T->right,x);
+return(T);
+}
+if(T->left==NULL && T->right==NULL)
+{
+temp=T;
+delete temp;
+return(NULL);
+}
+if(T->left==NULL)
+{
+temp=T;
+T=T->right;
+delete temp;
+return(T);
+}
+if(T->right==NULL)
+{
+temp=T;
+T=T->left;
+delete temp;
+return(T);
+}
+temp=T->right;
+while(temp->left!=NULL)
+temp=temp->left;
+T->data=temp->data;
+T->right=delet1(T->right,temp->data);
+return(T);
+}
+void BST::inorder1(BSTnode *T)
+{
+if(T!=NULL)
+{
+inorder1(T->left);
+cout<<" "<<T->data;
+inorder1(T->right);
+}
+}
+void BST::preorder1(BSTnode *T)
+{
+if(T!=NULL)
+{
+cout<<" "<<T->data;
+preorder1(T->left);
+preorder1(T->right);
+}
+}
+void BST::postorder1(BSTnode *T)
+{
+if(T!=NULL)
+{
+postorder1(T->left);
+postorder1(T->right);
+cout<<" "<<T->data;
+}
+}
+int BST::print0(BSTnode *T)
+{
+if(T==NULL)
+return(0);
+if(T->left==NULL && T->right==NULL)
+{
+cout<<" "<<T->data;
+return(1);
+}
+return(print0(T->left)+print0(T->right));
+}
+void BST::insert(int x)
+{
+BSTnode *p,*q,*r;
+r=new BSTnode(x);
+if(root==NULL)
+{
+root=r;
+return;
+}
+p=root;
+while(p!=NULL)
+{
+q=p;
+if(x>p->data)
+p=p->right;
+else
+p=p->left;
+}
+if(x>q->data)
+q->right=r;
+else
+q->left=r;
+}
+void BST::create()
+{
+int n,x,i;
+root=NULL;
+cout<<"\nEnter no. of nodes:";
+cin>>n;
+cout<<"\nEnter tree value:";
+for(i=0;i<n;i++)
+{
+cin>>x;
+insert(x);
+}}
+BSTnode *BST::find(int x)
+{
+BSTnode *T=root;
+while(T!=NULL)
+{
+if(x==T->data)
+return(T);
+if(x>root->data)
+T=T->right;
+else
+T=T->left;
+}
+return(NULL);
+}
+void BST::level_wise()
+{
+Q q1,q2;
+BSTnode *p1,*p2;
+BSTnode *T=root;
+if(T==NULL)
+return;
+q1.insert(T);
+cout<<"\n"<<T->data;
+while(!q1.empty())
+{
+cout<<"\n";
+q2.init();
+while(!q1.empty())
+{
+p1=q1.Delete();
+if(p1->left!=NULL)
+{
+q2.insert(p1->left);
+cout<<" "<<p1->left->data;
+}
+if(p1->right!=NULL)
+{
+q2.insert(p1->right);
+cout<<" "<<p1->right->data;
+}
+}
+q1=q2;
+}}
+main()
+{
+BST bst;
+BSTnode *p;
+int x,op;
+ do
+{
+cout<<"\n\n1.Create\n2.Delete\n3.Search\n4.Preorder";
+cout<<"\n5.Inorder\n6.Postorder";
+cout<<"\n7.Levelwise traversal\n8.Print leaf nodes\n9.Quit\nEnter your choice: ";
+cin>>op;
+switch(op)
+{
+case 1: bst.create();
+break;
+case 2: cout<<"\nEnter the key to be deleted: " ;
+cin>>x;
+bst.delet(x);
+break;
+case 3: cout<<"Enter the key to be searched: ";
+cin>>x;
+p=bst.find(x);
+if(p==NULL)
+cout<<"\nNot found....";
+else
+cout<<"\nFound..." ;
+break;
+case 4: bst.preorder();
+break;
+case 5: bst.inorder();
+break;
+case 6: bst.postorder();
+break;
+case 7:bst.level_wise();
+break;
+case 8:int xx;
+xx=bst.print_leaf_nodes();
+cout<<"\nNo of leaf nodes= "<<xx;
+break;
+}
+}while(op!=8); }
+  
+OUTPUT :
+ 
+1. Create
+2. Delete
+3. Search 
+4. Preorder
+5. Inorder
+6. Postorder
+7. Levelwise traversal
+8. Print leaf nodes 
+9. Quit 
+Eter your choice : >>>1
+
+Enter no. of nodes : >>>3
+
+Enter three value : >>>50
+>>>>30
+>>>>80
+
+
+1. Create
+2. Delete
+3. Search 
+4. Preorder
+5. Inorder
+6. Postorder
+7. Levelwise traversal
+8. Print leaf nodes 
+9. Quit 
+Enter your choice : >>>5
+30  50  80
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

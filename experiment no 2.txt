@@ -1,0 +1,309 @@
+PSEUDOCODE/SAMPLE CODE:
+
+A] Implementation of Stack as ADT
+
+#include <iostream>
+#include<conio.h>
+#include<stdlib.h>
+#define max 10
+using namespace std;
+int stack[max],top,temp;
+int main()
+{
+ int ch,number;
+ top=-1;
+ clrscr();
+do
+{
+ cout<<"\n1--->Push the elements on the stack";
+ cout<<"\n2--->Pop the elements from the stack";
+ cout<<"\n3--->Display elements of stack";
+ cout<<"\n4--->Exit:";
+ cout<<"\nEnter your choice:";
+ cin>>ch;
+ 
+ switch(ch)
+ {
+
+ case 1:
+
+ cout<<"Enter the element";
+ cin>>number;
+ 
+ if((top+1) == max)
+ cout<<"\nSack is full";
+ else
+ {
+ top++;
+ stack[top]=number;
+ }
+ temp=top;
+ break;
+ 
+ case 2:
+
+top=temp;
+ if(top==-1 )
+ cout<<"\n stack is empty";
+ else
+ {
+ number = stack[top];
+ top--;
+ 
+ cout<<number<< "\t is popped";
+ }
+ break;
+ 
+ case 3:
+
+if(top==-1)
+ cout<<"\The stack is empty";
+else
+ {
+ cout<<"Contents of stack are :\n";
+ while ( top != -1 )
+ {
+ number=stack[top];
+ top--;
+ cout<<number<< "\t";
+ }
+ }
+ }//end of switch
+ 
+ cout<<"\n Do you want to goto Main Menu[1/0]";
+ cin>>ch;
+ }while(ch==1);
+getch();
+ }
+
+B] C++ Program for Expression Conversion Using Stack
+
+#include <iostream>
+using namespace std;
+int priority(char c);
+char infix[20],stack[20];
+int i=0,j=0;
+
+int main()
+{ 
+ int p1;
+ cout<<"Enter infix expression:";
+ cin>>infix;
+ cout<<"output expression is:";
+ 
+ do
+ {
+ p1=priority(infix[i]);
+ if(p1==6)
+ cout<<infix[i];
+ else
+ {
+ if(j==0)
+ {
+stack[j]=infix[i];
+j++;
+ }
+ else
+ if(p1==4)
+{
+ stack[j]=infix[i];
+ j++;
+}
+ else
+ if(p1==5)
+ {
+do
+{
+ cout<<stack[j-1]<< " ";
+ j--;
+}while(stack[j-1]!='(');
+j--;
+ }
+ else
+ if(p1>priority(stack[j-1])||stack[j-1]=='(')
+ {
+stack[j]=infix[i];
+j++;
+ }
+ else
+ if(p1<=priority(stack[j-1]))
+ {
+while(p1<=priority(stack[j-1])&&stack[j-1]!='('&&j!=0)
+ {
+ 
+ cout<<stack[j-1]<< " ";
+ j--;
+ }
+stack[j]=infix[i];
+j++;
+ } //end of if
+ } //end of main else
+ i++;
+}while(infix[i]!=NULL);
+ for(i=j-1;i>=0;i--) //print remaining operators of stack 
+ cout<<stack[i]<< " ";
+ getch();
+ return 0;
+}
+int priority(char c)
+ {
+ int p;
+ if(c=='+'|| c=='-')
+ p=1;
+ else
+if(c=='*'|| c=='/')
+ p=2;
+ else
+if(c=='(')
+ p=4;
+ else
+if(c==')')
+ p=5;
+ else
+ p=6;
+ return(p);
+ }
+
+C]C++ Code for evaluation of Postfix expression
+
+#include<iostream>
+#include<cmath>
+#include<stack>
+using namespace std;
+float operation(int, int, char) ;
+float scanNum(char);
+int isOperator(char);
+int isOperand(char);
+float scanNum(char ch) 
+{
+ int value;
+ value = ch;
+ return float(value-'0'); //return float from character
+}
+int isOperator(char ch) 
+{
+ if(ch == '+'|| ch == '-'|| ch == '*'|| ch == '/' || ch == '^')
+ return 1; //character is an operator
+ return -1; //not an operator
+}
+int isOperand(char ch)
+{
+ if(ch >= '0' && ch <= '9')
+ return 1; //character is an operand
+ return -1; //not an operand
+}
+float operation(int a, int b, char op) 
+{
+ 
+ float INT_MIN;;
+ //Perform operation
+ if(op == '+')
+ return b+a;
+ else if(op == '-')
+ return b-a;
+ else if(op == '*')
+ return b*a;
+ else if(op == '/')
+ return b/a;
+ else if(op == '^')
+ return pow(b,a); //find b^a
+ else
+ return INT_MIN; //return negative infinity
+}
+float postfixEval(string postfix) 
+{
+ int a, b;
+
+ stack<float> stk;
+ string::iterator it;
+ 
+ for(it=postfix.begin(); 
+ it!=postfix.end(); it++) 
+ {
+ //read elements and perform postfix evaluation
+ if(isOperator(*it) != -1)
+ {
+ a = stk.top();
+ stk.pop();
+ b = stk.top();
+ stk.pop();
+ stk.push(operation(a, b, *it));
+ }
+ 
+ else if(isOperand(*it) > 0) 
+ {
+ stk.push(scanNum(*it));
+ }
+ }
+ return stk.top();
+}
+main() 
+{
+ char postfix[10];;
+ cout<<"Enter postfix Expression:\n";
+ cin>>postfix;
+ cout << "The result is: "<<postfixEval(postfix);
+}
+
+OUTPUT: 
+
+A] Output: Implementation of Stack as ADT
+
+1--->Push the elements on the stack
+2--->Pop the elements from the stack
+3--->Display elements of stack
+4--->Exit:
+Enter your choice:>>>1
+Enter the element>>>1
+Do you want to goto Main Menu[1/0]>>>1
+1--->Push the elements on the stack
+2--->Pop the elements from the stack
+3--->Display elements of stack
+4--->Exit:
+Enter your choice:>>>1
+Enter the element>>>2
+Do you want to goto Main Menu[1/0]>>>1
+1--->Push the elements on the stack
+2--->Pop the elements from the stack
+3--->Display elements of stack
+4--->Exit:
+Enter your choice:>>>1
+Enter the element>>>3
+Do you want to goto Main Menu[1/0]>>>1
+1--->Push the elements on the stack
+2--->Pop the elements from the stack
+3--->Display elements of stack
+4--->Exit:
+Enter your choice:>>>3
+Contents of stack are :
+3     2     1
+Do you want to goto Main Menu[1/0]>>>1
+1--->Push the elements on the stack
+2--->Pop the elements from the stack
+3--->Display elements of stack
+4--->Exit:
+Enter your choice:>>>2
+3 is popped
+Do you want to goto Main Menu[1/0]>>>1
+1--->Push the elements on the stack
+2--->Pop the elements from the stack
+3--->Display elements of stack
+4--->Exit:
+Enter your choice:>>>3
+Contents of stack are :
+2       1
+Do you want to goto Main Menu[1/0]>>>
+
+B] Output: Expression Conversion Using Stack
+
+Enter infix expression:>>>a+b
+output expression is:ab+ 
+Enter infix expression:>>>A+B*C 
+output expression is:ABC* + 
+Enter infix expression:>>>(a+b)*(c-d)
+output expression is:ab+ cd- * 
+
+C] Output: Expression Evaluation
+
+Enter Postfix Expression:98+
+The result is: 17

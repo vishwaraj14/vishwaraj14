@@ -1,0 +1,235 @@
+PSEUDOCODE / SAMPLE CODE :
+
+A] Writing and Reading from file :
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+ 
+int main ()
+{
+ char info[50];
+ //open a file to write
+ ofstream ofile;
+ ofile.open("mfile.dat");
+ cout << "Writing to a file" << endl;
+ cout << "Enter Message Line? "; 
+ cin.getline(info, 50);
+ //writing entered data into the file.
+ ofile << info << endl;
+ 
+ //write again inputted data into the file.
+ ofile << info << endl;
+ //closing the opened file.
+ ofile.close();
+ //open a file to read
+ ifstream ifile; 
+ ifile.open("nfile.dat"); 
+ 
+ //Reading from file and displaying
+ cout << "Reading from the file" << endl; ifile >> info; 
+ cout << info << endl;
+ //closing the opened file.
+ ifile.close();
+ return 0;
+}
+
+B] Searching from File
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+class student
+{
+ public:
+ int rollno;
+ char name[20];
+ void getdata()
+ {
+ cout<<"\n Enter Data...";
+ cout<<"Rollno: ";
+ cin>>rollno;
+ cout<<"Name: ";
+ cin>>name;
+ }
+ 
+ void putdata()
+ {
+ cout<<"Rollno: "<<rollno<<"\tName: "<<name<<"\n";
+ }
+}stud1;
+int main()
+{
+ //clrscr();
+ int ch, count=0;
+ fstream fio;
+ fio.open("marks.dat",ios::out);
+ 
+ do
+ {
+ stud1.getdata();
+ count++;
+ fio.write((char*)&stud1,sizeof(stud1));
+ cout<<"Record added to the file\n";
+ cout<<"\nWant to enter more ? (1/0)..";
+ cin>>ch;
+ }while(ch==1);
+ fio.close();
+ int temp=count;
+ 
+ fio.open("marks.dat", ios::in);
+ fio.seekg(0,ios::beg);
+ 
+ while(count>0)
+ {
+ fio.read((char*)&stud1,sizeof(stud1));
+ {
+ stud1.putdata();
+ count--;
+ }
+ }
+fio.close();
+int roll1,flag=0;
+count=temp;
+fio.open("marks.dat", ios::in);
+fio.seekg(0,ios::beg);
+cout<<"\nEnter the roll you want to search\n";
+cin>>roll1;
+while(count>0)
+ {
+ fio.read((char*)&stud1,sizeof(stud1));
+ if(stud1.rollno==roll1)
+ {
+ cout<<"\nRecord is found";
+ stud1.putdata();
+ flag=1;
+ break;
+ }
+ else
+ count--;
+ }
+if(flag==0)
+ cout<<"\nRecord not found";
+fio.close();
+ }
+
+B] Deleting from File : 
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+class student
+{
+ public:
+ int rollno;
+ char name[20];
+ void getdata()
+ {
+ cout<<"\n Enter Data...";
+ cout<<"Rollno: ";
+ cin>>rollno;
+ cout<<"Name: ";
+ cin>>name;
+ }
+ 
+ void putdata()
+ {
+ cout<<"Rollno: "<<rollno<<"\tName: "<<name<<"\n";
+ }
+}stud1;
+int main()
+{
+ //clrscr();
+ int ch, count=0, total1, total2, number;
+ fstream fio, fio1;
+ fio.open("marks.dat",ios::out);
+ 
+ do
+ {
+ stud1.getdata();
+ count++;
+ fio.write((char*)&stud1,sizeof(stud1));
+ cout<<"Record added to the file\n";
+ cout<<"\nWant to enter more ? (1/0)..";
+ cin>>ch;
+ }while(ch==1);
+total1=count;
+ fio.close();
+ 
+ fio.open("marks.dat", ios::in);
+ fio.seekg(0,ios::beg);
+ 
+ while(count>0)
+ {
+ fio.read((char*)&stud1,sizeof(stud1));
+ {
+ stud1.putdata();
+ count--;
+ }
+ }
+ fio.close();
+fio.open("marks.dat", ios::in);
+fio1.open("result.dat",ios::out);
+cout<<"\nEnter roll number of record you want to delete";
+cin>>number;
+while(total1>0)
+ {
+ fio.read((char*)&stud1,sizeof(stud1));
+ if(number!=stud1.rollno)
+ {
+ fio1.write((char*)&stud1,sizeof(stud1));
+ total1--;
+ total2++;
+ }
+ else
+ total1--;
+ }
+ fio.close();
+ fio1.close();
+ remove("marks.dat");
+ rename("result.dat", "marks.dat");
+ 
+ fio.open("marks.dat", ios::in);
+ fio.seekg(0,ios::beg);
+ while(total2-1>=0)
+ {
+ fio.read((char*)&stud1,sizeof(stud1));
+ {
+ stud1.putdata();
+ total2--;
+ }
+ }
+ fio.close();
+}
+
+OUTPUT: 
+
+Use following URL to execute file program online
+https://repl.it/languages/cpp
+Enter Data...Rollno: 1
+Name: 2
+Record added to the file
+Want to enter more ? (1/0)..1
+
+Enter Data...Rollno: 2
+Name: 2
+Record added to the file
+Want to enter more ? (1/0)..1
+
+Enter Data...Rollno: 3
+Name: 3
+Record added to the file
+Want to enter more ? (1/0)..1
+
+Enter Data...Rollno: 4
+Name: 4
+Record added to the file
+Want to enter more ? (1/0)..0
+
+Rollno: 1 Name: 2
+Rollno: 2 Name: 2
+Rollno: 3 Name: 3
+Rollno: 4 Name: 4
+
+Enter the roll you want to search 3 
+Record is found Rollno:  Name: 

@@ -1,0 +1,302 @@
+PSEUDOCODE/SAMPLE CODE:
+
+A] C++ Code…Binary Search
+
+#include <iostream>
+#include<conio.h> 
+#include<stdlib.h>
+using namespace std;
+int main() 
+{
+ int n,i,a[10],number,lower=0,middle,higher,flag=0;
+ cout<<"Enter total numbers in the list ";
+ cin>>n;
+ cout<<"Enter the numbers in ascending order... ";
+ for(i=0;i<n;i++)
+ cin>>a[i];
+ 
+ cout<<"Enter the number to be searched ";
+ cin>>number;
+ 
+ higher=n-1;
+ while(lower<=higher)
+ {
+ middle=(lower+higher)/2;
+ if(number==a[middle])
+{
+ flag=1;
+ break;
+}
+ if(number<a[middle])
+higher=middle-1;
+ else
+ lower=middle+1;
+ }
+ if(flag==1)
+ cout<<"Number is found";
+ else
+ cout<<"Number is not found";
+ getch();
+ }
+
+B] C++ Code…Bubble Sort
+
+#include <iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+int main() 
+{
+ int n,i,pass,j,a[10],temp;
+ clrscr();
+ cout<<"Enter total numbers\n";
+ cin>>n;
+ cout<<"Enter the numbers....\n ";
+ for(i=0;i<n;i++)
+ {
+ cout<<"Enter the number at position"<<i+1;
+ cin>>a[i]; 
+ }
+ for(pass=0;pass<n-1;pass++)
+ {
+ for(j=0;j<n-pass-1;j++)
+ {
+if(a[j]>a[j+1])
+{
+ temp=a[j];
+ a[j]=a[j+1];
+ a[j+1]=temp;
+}
+ }
+ }
+ cout<<"The sorted numbers....\n";
+ for(i=0;i<n;i++)
+ cout << a[i] << " "; 
+ getch();
+ }
+
+C] C++ code for switch case example
+
+#include <iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+int main() 
+{
+ int a,b,c,ch;
+ 
+ clrscr();
+ cout<<" Enter two numbers...";
+ cin>>a>>b;
+ cout<<" 1: Addition\n 2: Subtraction\n 3: Exit\n Enter Your choice..\n" ;
+ cin>>ch;
+ 
+ switch(ch)
+ {
+ case 1:
+ {
+ c=a+b;
+ cout<<"Result is.." <<c; 
+ break;
+ }
+ 
+ case 2:
+ {
+ c=a-b;
+ cout<<"Result is.." <<c; 
+ break;
+ }
+ 
+ default:
+ cout<<"Please enter correct choice.."; 
+ }//end of switch case
+ }//End of main
+
+OUTPUT :
+
+ BINARY SEARCH OUTPT :
+
+Enter total numbers in the list >>>5
+Enter the numbers in ascending order... >>>10
+>>>20
+>>>30
+>>>40
+>>>50
+Enter the number to be searched >>>30
+Number is found
+
+OUTPUT BUBBLE SORT :
+
+Enter total numbers 5
+Enter the numbers 40 30 50 20 70
+The sorted numbers 20 30 40 50 70
+Enter total numbers
+>>>5
+Enter the numbers....
+Enter the number at position1>>>20
+Enter the number at position2>>>30
+Enter the number at position3>>>40
+Enter the number at position4>>>10
+Enter the number at position5>>>50
+The sorted numbers....
+10 20 30 40 50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PSEUDOCODE / SAMPLE CODE ;
+A c++ code… binary search
+
+#include <iostream>
+#include<conio.h> 
+#include<stdlib.h>
+using namespace std;
+int main() 
+{
+ int n,i,a[10],number,lower=0,middle,higher,flag=0;
+ cout<<"Enter total numbers in the list ";
+ cin>>n;
+ cout<<"Enter the numbers in ascending order... ";
+ for(i=0;i<n;i++)
+ cin>>a[i];
+ 
+ cout<<"Enter the number to be searched ";
+ cin>>number;
+ 
+ higher=n-1;
+ while(lower<=higher)
+ {
+ middle=(lower+higher)/2;
+ if(number==a[middle])
+{
+ flag=1;
+ break;
+}
+ if(number<a[middle])
+higher=middle-1;
+ else
+ lower=middle+1;
+ }
+ if(flag==1)
+ cout<<"Number is found";
+ else
+ cout<<"Number is not found";
+ getch();
+ }
+
+B] c++ code … bubble sort 
+
+#include <iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+int main() 
+{
+ int n,i,pass,j,a[10],temp;
+ clrscr();
+ cout<<"Enter total numbers\n";
+ cin>>n;
+ cout<<"Enter the numbers....\n ";
+ for(i=0;i<n;i++)
+ {
+ cout<<"Enter the number at position"<<i+1;
+ cin>>a[i]; 
+ }
+ for(pass=0;pass<n-1;pass++)
+ {
+ for(j=0;j<n-pass-1;j++)
+ {
+if(a[j]>a[j+1])
+{
+ temp=a[j];
+ a[j]=a[j+1];
+ a[j+1]=temp;
+}
+ }
+ }
+ cout<<"The sorted numbers....\n";
+ for(i=0;i<n;i++)
+ cout << a[i] << " "; 
+ getch();
+ }
+
+C] c++ code for switch case example 
+
+#include <iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+int main() 
+{
+ int a,b,c,ch;
+ 
+ clrscr();
+ cout<<" Enter two numbers...";
+ cin>>a>>b;
+ cout<<" 1: Addition\n 2: Subtraction\n 3: Exit\n Enter Your choice..\n" ;
+ cin>>ch;
+ 
+ switch(ch)
+ {
+ case 1:
+ {
+ c=a+b;
+ cout<<"Result is.." <<c; 
+ break;
+ }
+ 
+ case 2:
+ {
+ c=a-b;
+ cout<<"Result is.." <<c; 
+ break;
+ }
+ 
+ default:
+ cout<<"Please enter correct choice.."; 
+ }//end of switch case
+ }//End of main
+
+
+OUTPUT :
+
+Binary search output :
+
+Enter total numbers in the list >>>5
+Enter the numbers in ascending order... >>>10
+>>>20
+>>>30
+>>>40
+>>>50
+Enter the number to be searched >>>30
+Number is found
+
+Output bubble sort :
+
+Enter total numbers 5
+Enter the numbers 40 30 50 20 70
+The sorted numbers 20 30 40 50 70
+
+Enter total numbers
+>>>5
+Enter the numbers....
+Enter the number at position1>>>20
+Enter the number at position2>>>30
+Enter the number at position3>>>40
+Enter the number at position4>>>10
+Enter the number at position5>>>50
+The sorted numbers....
+10 20 30 40 50 
+ 

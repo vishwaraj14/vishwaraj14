@@ -1,0 +1,115 @@
+PSEUDOCODE/SAMPLE CODE:
+
+#include <iostream>
+#include<conio.h>
+#include<stdlib.h>
+#define max 5
+using namespace std;
+int main()
+{
+int queue[max],front=0,rear=-1;
+int ch=0, data,temp,count=0,count1,front1;
+clrscr();
+do
+{
+cout<<"\n1. Enqueue-Insert the element";
+cout<<"\n2. Dequeue-Delete the element";
+cout<<"\n3. Display the queue";
+cout<<"\n4. Quit";
+cout<<"\nEnter Your Choice ";
+cin>>ch;
+ 
+switch(ch)
+{
+case 1:
+ if(count==max)
+ cout<<"Queue is full";
+ else
+ {
+cout<<"Enter data : ";
+cin>>data;
+rear=(rear+1)%max;
+queue[rear]=data;
+count++;
+ }
+ count1=count;
+break;
+case 2:
+ if(count==0)
+ cout<<"\nQueue is empty";
+else
+ {
+data = queue[front];
+ cout<<data<< " is delected\n";
+front=(front+1)%max;
+count--;
+ }
+ front1=front;
+break;
+ case 3:
+ count1=count;
+ front1=front;
+ if(count1==0)
+ cout<<"\nQueue is empty";
+ else
+ {
+ while(count1>0)
+{
+ cout<< queue[front1] << " ";
+ front1=(front1+1)%max;
+ count1--;
+}
+ }
+ break;
+case 4: exit(0);
+ }// end of switch case
+ 
+ cout<<"Continue[1/0]";
+ cin>>ch; 
+ }while(ch==1);
+ 
+}// End of main
+
+
+OUTPUT: 
+
+1. Enqueue-Insert the element
+2. Dequeue-Delete the element
+3. Display the queue
+4. Quit
+Enter Your Choice >>>1
+Enter data : >>>1
+Continue[1/0]>>>1
+1. Enqueue-Insert the element
+2. Dequeue-Delete the element
+3. Display the queue
+4. Quit
+Enter Your Choice >>>1
+Enter data : >>>2
+Continue[1/0]>>>1
+1. Enqueue-Insert the element
+2. Dequeue-Delete the element
+3. Display the queue
+4. Quit
+Enter Your Choice >>>1
+Enter data : >>>3
+Continue[1/0]>>>1
+1. Enqueue-Insert the element
+2. Dequeue-Delete the element
+3. Display the queue
+4. Quit
+Enter Your Choice >>>3
+1 2 3 Continue[1/0]>>>1
+1. Enqueue-Insert the element
+2. Dequeue-Delete the element
+3. Display the queue
+4. Quit
+Enter Your Choice >>>2
+1 is delected
+Continue[1/0]>>>1
+1. Enqueue-Insert the element
+2. Dequeue-Delete the element
+3. Display the queue
+4. Quit
+Enter Your Choice >>>3
+2 3 Continue[1/0]>>
