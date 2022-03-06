@@ -4,10 +4,8 @@
    My strengths are my attitude that I like to take challenges, self motivated person, self disciplined ,I am a good team player as well as has a good ability to lead the team.
    - My Hobbies includes: 1. Reading
                        2. writing
-                       3. Watching Youtube
-                       4. Playing Cricket:)
-   
-  Connect With Me :-
-
-- ✿ Branch :- I.T. 3rd Sem.
-- ✿ LinkedIN :- https://www.linkedin.com/in/vishwaraj-singh-11a707200
+                       3. Watching youtube
+                   
+                
+- Connect With Me -
+  ⁕LinkedIN :- https://www.linkedin.com/in/vishwaraj-singh-11a707200
