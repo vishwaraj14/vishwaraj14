@@ -3,7 +3,7 @@
    I am an engineering student, Pursuing Computer Science & Information Technology as my major.
    My strengths are my attitude that I like to take challenges, self motivated person, self disciplined ,I am a good team player as well as has a good ability to lead the team.
    - My Hobbies includes: 1. Reading
-                       2. Writing
+                       2. writing
                        3. Watching Youtube
                        4. Playing Cricket:)
    
