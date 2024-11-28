@@ -3,13 +3,13 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=vishwaraj14&label=Profile%20views&color=0e75b6&style=flat" alt="vishwaraj14" /> </p>
 
-- 🔭 I’m currently working on **Energy Analtics of INDIA**
+- 🔭 I’m currently working on **Data science Projecr**
 
-- 🌱 I’m currently learning **DSA**
+- 🌱 I’m currently learning **Big Data Technologies**
 
-- 🤝 I’m looking for help with **Energy Analytics & Sign Language Project**
+- 🤝 I’m looking for help with **Machine Learing,Python,Bigdata,DSA**
 
-- 💬 Ask me about **Python,Tableau,**
+- 💬 Ask me about **Python,Tableau,SQL**
 
 - 📫 How to reach me **singhvishwaraj73@gmail.com**
 
