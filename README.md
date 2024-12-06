@@ -3,7 +3,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=vishwaraj14&label=Profile%20views&color=0e75b6&style=flat" alt="vishwaraj14" /> </p>
 
-- 🔭 I’m currently working on **Data science Projecr**
+- 🔭 I’m currently working on **Data science Projects**
 
 - 🌱 I’m currently learning **Big Data Technologies**
 
@@ -12,6 +12,7 @@
 - 💬 Ask me about **Python,Tableau,SQL**
 
 - 📫 How to reach me **singhvishwaraj73@gmail.com**
+  
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
