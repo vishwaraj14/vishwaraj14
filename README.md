@@ -5,11 +5,11 @@
 
 - 🔭 I’m currently working on **Data science Projects**
 
-- 🌱 I’m currently learning **Big Data Technologies**
+- 🌱 I’m currently learning **DSA**
 
 - 🤝 I’m looking for help with **Machine Learing,Python,Bigdata,DSA**
 
-- 💬 Ask me about **Python,Tableau,SQL**
+- 💬 Ask me about **Python,SQL,Big data**
 
 - 📫 How to reach me **singhvishwaraj73@gmail.com**
   
